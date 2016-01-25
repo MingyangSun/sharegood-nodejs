@@ -1,0 +1,46 @@
+<% for(var i = 0; i < photos.length; i++) { %>
+ <% if(i == 0) { %>
+ <div class="row">
+    <div class="col-sm-6">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <p><a href="/home/good=<%= photos[i]["photo_id"] %>"><img src="../img/<%= photos[i]["image_uri"] %>.jpg" ></a></p>
+                <div class="clearfix"></div>
+                <hr>
+                <div class="panel-heading"><a href="#" class="pull-right">Like:<%= photos[i]["like_photo"] %></a> <h4><%= photos[i]["description"] %></h4></div>
+              </div>
+           </div>
+    </div>
+ <% } else if(i%2 == 0) { %>
+ </div>
+  <div class="row">
+	<div class="col-sm-6">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <p><a href="/home/good=<%= photos[i]["photo_id"] %>"><img src="../img/<%= photos[i]["image_uri"] %>.jpg"></a></p>
+                <div class="clearfix"></div>
+                <hr>
+                <div class="panel-heading"><a href="#" class="pull-right">Like:<%= photos[i]["like_photo"] %></a> <h4><%= photos[i]["description"] %></h4></div>
+              </div>
+           </div>
+    </div>
+ <% } else { %>
+	<div class="col-sm-6">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <p><a href="/home/good=<%= photos[i]["photo_id"] %>"><img src="../img/<%= photos[i]["image_uri"] %>.jpg"></a></p>
+                <div class="clearfix"></div>
+                <hr>
+                <div class="panel-heading"><a href="#" class="pull-right">Like:<%= photos[i]["like_photo"] %></a> <h4><%= photos[i]["description"] %></h4></div>
+              </div>
+           </div>
+    </div>
+ <% } %>
+<% } %>
+<% if(photos.length != 0 && photos.length%2 == 0) { %>
+</div>
+<% } else if(photos.length != 0 && photos.length%2 == 1) { %>
+<div class="col-sm-6">
+</div>
+</div>
+<% } %>

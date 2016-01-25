@@ -1,0 +1,63 @@
+<div class="row">
+	<div class="panel panel-default">
+    	<div class="panel-body">
+     		 <p class="lead"><%= person[0].user_name%></p>
+     		 <p>Follower: <%= person[0]["follower"]%></p>
+     		 <p>Following: <%= person[0]["following"]%></p>
+     		 <p>Posts: <%= person.length %></p>
+    	</div>
+  	</div>
+</div>
+<hr>
+<% for(var i = 0; i < person.length; i++) { %>
+ <% if(i == 0) { %>
+ <div class="row">
+    <div class="col-sm-4">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <p><a href="/home/good=<%= person[i]["photo_id"] %>"><img src="../img/<%= person[i]["image_uri"] %>.jpg"></p>
+                <div class="clearfix"></div>
+                <hr>
+                <div class="panel-heading"><a href="#" class="pull-right">Like:<%= person[i]["like_photo"] %></a> <h4><%= person[i]["description"] %></h4></div>
+              </div>
+           </div>
+    </div>
+ <% } else if(i%3 == 0) { %>
+ </div>
+  <div class="row">
+	<div class="col-sm-4">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <p><img src="../img/<%= person[i]["image_uri"] %>.jpg"></p>
+                <div class="clearfix"></div>
+                <hr>
+                <div class="panel-heading"><a href="#" class="pull-right">Like:<%= person[i]["like_photo"] %></a> <h4><%= person[i]["description"] %></h4></div>
+              </div>
+           </div>
+    </div>
+ <% } else { %>
+	<div class="col-sm-4">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <p><img src="../img/<%= person[i]["image_uri"] %>.jpg"></p>
+                <div class="clearfix"></div>
+                <hr>
+                <div class="panel-heading"><a href="#" class="pull-right">Like:<%= person[i]["like_photo"] %></a> <h4><%= person[i]["description"] %></h4></div>
+              </div>
+           </div>
+    </div>
+ <% } %>
+<% } %>
+<% if(person.length != 0 && person.length%3 == 0) { %>
+</div>
+<% } else if(person.length != 0 && person.length%3 == 1) { %>
+<div class="col-sm-4">
+</div>
+<div class="col-sm-4">
+</div>
+</div>
+<% } else if(person.length != 0 && person.length%3 == 2) { %>
+<div class="col-sm-4">
+</div>
+</div>
+<% } %>
