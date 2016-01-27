@@ -7,6 +7,8 @@ var bodyParser = require("body-parser");
 var home = require("./routes/home");
 var signup = require("./routes/signup");
 var login = require("./routes/login");
+var post = require("./routes/post");
+var signout = require("./routes/signout");
 
 var app = express();
 
@@ -18,7 +20,9 @@ app.use(bodyParser());
 app.use(cookieParser());
 app.use("/home", home);
 app.use("/signup", signup);
-app.use("/login", login)
+app.use("/login", login);
+app.use("/post", post);
+app.use("/signout", signout);
 
 app.listen(3000, function(err) {
 	console.log("Server is Running on Port 3000!");

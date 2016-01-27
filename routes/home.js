@@ -172,4 +172,58 @@ router.get("/liked", function(req, res) {
 	});
 });
 
+router.post("like", function(req, res){
+	var uID = req.cookies.userID;
+	var pID = req.body.photo_id;
+
+	//SQL Queries
+	var sql1 = "select * from liked_photo where user_id = ? and photo_id = ? ";
+	var sql2 = "insert into liked_photo set ? ";
+	var sql3 = "update photo set like_photo = ? where photo_id = ? ";
+	var sql4 = "delete from liked_photo where user_id = ? and photo_id = ? ";
+	var sql5 = "select like_photo from photo where photo_id = ? ";
+	coneection.query(sql5, pID, function(err5, result5) {
+		if(err5) {
+			console.log("SQL Query Error!\n" + err5);
+		} else {
+			var likes = result[0]["liked_photo"];
+			connection.query(sql1, [uID, pID], function(err1, result1) {
+				if(err1) {
+					console.log("SQL Query Error!\n" + err1);
+				} else {
+					if(result1.length = 1) {
+						connection.query(sql4, [uID, pID], function(err4, result4) {
+							if(err4) {
+								console.log("SQL Query Error!\n" + err);
+							} else {
+								connection.query(sql3, [likes-1, pID], function(err3, result3) {
+									if(err3) {
+										console.log("SQL Query Error!\n" + err3);
+									} else {
+										res.send(likes-1);
+									}
+								});
+							}
+						});
+					} else {
+						connection.query(sql2, {user_id: uID, photo_id: pID}, function(err2, result2) {
+							if(err2) {
+								console.log("SQL Query Error!\n");
+							} else {
+								connection.query(sql3, [likes+1, pID], function(err3, result3) {
+									if(err3) {
+										console.log("SQL Query Error!\n");
+									} else {
+										res.send(likes+1);
+									}
+								});
+							}
+						});
+					}
+				}
+			});
+		}
+	});
+});
+
 module.exports = router;

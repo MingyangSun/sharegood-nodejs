@@ -33,7 +33,7 @@ router.post("/", function(req, res){
 				res.render("login");
 			} else {
 				console.log("User ID: " + result[0]["user_id"]);
-				res.cookie("userID", result[0]["user_id"], {maxAge: 60*1000});
+				res.cookie("userID", result[0]["user_id"], {maxAge: 60*10000});
 				res.redirect("home");
 			}
 		}

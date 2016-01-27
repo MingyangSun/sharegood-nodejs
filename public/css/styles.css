@@ -235,6 +235,10 @@ h1,h2,h3 {
    box-shadow:0 0 0;
 }
 
+#file-input {
+    display:none;
+}
+
 small.text-muted {
   font-family:courier,courier-new,monospace;
 }
