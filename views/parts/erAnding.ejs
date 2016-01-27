@@ -1,0 +1,15 @@
+<% for(var i = 0; i < person.length; i++) { %>
+<div class="row">
+	<div class="panel panel-default">
+    	<div class="panel-body">
+     		 <p class="lead"><%= person[i].user_name%></p>
+     		 <br>
+     		 <p><a class="well">Follower: <%= person[i]["follower"]%><a>
+     		 <a class="well">Following: <%= person[i]["following"]%></a></p>
+     		 <br>
+     		 <p><a class="well">City: <%= person[i]["country"] %>  Country: <%= person[i]["city"] %></a></p>
+    	</div>
+  	</div>
+</div>
+<hr>
+<% } %>

@@ -7,7 +7,7 @@
                 <p><a href="/home/good=<%= photos[i]["photo_id"] %>"><img src="../img/<%= photos[i]["image_uri"] %>.jpg" ></a></p>
                 <div class="clearfix"></div>
                 <hr>
-                <div class="panel-heading"><a href="#" class="pull-right">Like:<%= photos[i]["like_photo"] %></a> <h4><%= photos[i]["description"] %></h4></div>
+                <div class="panel-heading"><a onclick="like(this, <%= photos[i]["user_id"] %>)" class="pull-right">Like:<%= photos[i]["like_photo"] %></a> <h4><%= photos[i]["description"] %></h4></div>
               </div>
            </div>
     </div>
@@ -20,7 +20,7 @@
                 <p><a href="/home/good=<%= photos[i]["photo_id"] %>"><img src="../img/<%= photos[i]["image_uri"] %>.jpg"></a></p>
                 <div class="clearfix"></div>
                 <hr>
-                <div class="panel-heading"><a href="#" class="pull-right">Like:<%= photos[i]["like_photo"] %></a> <h4><%= photos[i]["description"] %></h4></div>
+                <div class="panel-heading"><a onclick="like(this, <%= photos[i]["user_id"] %>)" class="pull-right">Like:<%= photos[i]["like_photo"] %></a> <h4><%= photos[i]["description"] %></h4></div>
               </div>
            </div>
     </div>
@@ -31,7 +31,7 @@
                 <p><a href="/home/good=<%= photos[i]["photo_id"] %>"><img src="../img/<%= photos[i]["image_uri"] %>.jpg"></a></p>
                 <div class="clearfix"></div>
                 <hr>
-                <div class="panel-heading"><a href="#" class="pull-right">Like:<%= photos[i]["like_photo"] %></a> <h4><%= photos[i]["description"] %></h4></div>
+                <div class="panel-heading"><a onclick="like(this, <%= photos[i]["user_id"] %>)" class="pull-right">Like:<%= photos[i]["like_photo"] %></a> <h4><%= photos[i]["description"] %></h4></div>
               </div>
            </div>
     </div>

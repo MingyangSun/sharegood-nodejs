@@ -2,9 +2,18 @@
 	<div class="panel panel-default">
     	<div class="panel-body">
      		 <p class="lead"><%= person[0].user_name%></p>
-     		 <p>Follower: <%= person[0]["follower"]%></p>
-     		 <p>Following: <%= person[0]["following"]%></p>
-     		 <p>Posts: <%= person.length %></p>
+         <% if(isFollow != "") { %>
+         <p><button type="button" class="btn btn-default btn-success" onclick="follow(this, <%= person[0]["user_id"] %>)"><%= isFollow %></button></p>
+         <br>
+         <p><a class="well" href="/home/follower=<%= person[0]["user_id"] %>" >Follower: <%= person[0]["follower"]%></a>
+         <a class="well" href="/home/following=<%= person[0]["user_id"] %>" >Following: <%= person[0]["following"]%></a></p>
+         <% } else { %>
+         <br>
+     		 <p><a class="well" href="/home/follower=0" >Follower: <%= person[0]["follower"]%></a>
+     		 <a href="/home/following=0" >Following: <%= person[0]["following"]%></a></p>
+         <% } %>
+         <br>
+     		 <p class="well">Posts: <%= person.length %></p>
     	</div>
   	</div>
 </div>

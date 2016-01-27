@@ -16,6 +16,9 @@
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+    <script src="../js/like.js"></script>
+    <script src="../js/follow.js"></script>
+
 	</head>
 	<body>
 <div class="wrapper">
@@ -73,13 +76,10 @@
                     </form>
                     <ul class="nav navbar-nav">
                       <li>
-                        <a href="/home/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                        <a href="/home/userHome"><i class="glyphicon glyphicon-home"></i> Home</a>
                       </li>
                       <li>
                         <a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Post</a>
-                      </li>
-                      <li>
-                        <a href="#"><span class="badge">badge</span></a>
                       </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -110,9 +110,19 @@
                         <% include parts/onePhoto %>
                       <% } %>
 
+                      <% if(page == "following") { %>
+                        <% include parts/erAnding %>
+                      <% } %>
+
+                      <% if(page == "follower") { %>
+                        <% include parts/erAnding %>
+                      <% } %>
+
                       <% if(page == "personalPage") { %>
                         <% include parts/personalPage %>
                       <% } %>
+
+
 
                       <!-- END OF MAIN PART-->
                     </div><!-- /col-9 -->

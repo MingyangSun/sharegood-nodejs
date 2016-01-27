@@ -1,6 +1,6 @@
-var likePhoto = function(pid) {
+var like = function(obj,pid) {
 	var post = {photo_id : pid};
 	$.post("/home/like", post, function(data) {
-		console.log("Data:" + data);
+		$(obj).html("Like: " + data.like);
 	});
 }

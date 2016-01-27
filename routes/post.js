@@ -39,7 +39,7 @@ router.post("/", function(req, res) {
 		image_uri: name
 	};
 
-	connection.query(sql, newPhoto, function(err, result {
+	connection.query(sql, newPhoto, function(err, result) {
 		if(err) {
 			console.log("SQL Query Error!\n" + err);
 			res.redirect("/home");
@@ -47,7 +47,7 @@ router.post("/", function(req, res) {
 			console.log(result);
 			res.redirect("/home");
 		}
-	}));
+	});
 });
 
 module.exports = router;
